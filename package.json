@@ -1,0 +1,36 @@
+{
+    "name": "pop-a-balloon",
+    "version": "1.0.0",
+    "description": "gender reveal pop balloon",
+    "main": "src/index.ts",
+    "scripts": {
+        "start": "webpack serve --config webpack.config.dev",
+        "build": "webpack",
+        "test": ""
+    },
+    "author": "Kamil Kolodynski",
+    "license": "ISC",
+    "dependencies": {
+        "bodymovin": "^4.13.0",
+        "clean-webpack-plugin": "^4.0.0",
+        "css-loader": "^6.5.1",
+        "dotenv": "^10.0.0",
+        "eslint": "^8.5.0",
+        "html-loader": "^3.0.1",
+        "i": "^0.3.7",
+        "npm": "^8.3.0",
+        "style-loader": "^3.3.1",
+        "ts-loader": "^9.2.6",
+        "tsparticles": "^1.37.5",
+        "tsparticles-preset-confetti": "^1.22.5",
+        "typescript": "^4.5.4",
+        "webpack-cli": "^4.9.1",
+        "webpack-dev-server": "^4.6.0"
+    },
+    "devDependencies": {
+        "html-webpack-plugin": "^5.5.0",
+        "sass": "^1.45.0",
+        "sass-loader": "^12.4.0",
+        "webpack": "^5.65.0"
+    }
+}

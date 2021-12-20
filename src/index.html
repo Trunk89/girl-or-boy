@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title><%= htmlWebpackPlugin.options.title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+
+	<body>
+		<main>
+			<template class="balloon-template">
+				<button class="balloon">
+					<div class="knot">
+						<div class="string"></div>
+					</div>
+				</button>
+			</template>
+
+			<div class="scoreboard">
+				<span class="scoreboard__girl"
+					><span class="scoreboard__text">Girl:</span>
+					<span class="scoreboard__girl-points">
+						<span class="scoreboard__balloon scoreboard__balloon--unscored">
+							<%= require('html-loader!./view/balloon-svg.html').default %>
+						</span>
+						<span class="scoreboard__balloon scoreboard__balloon--unscored"
+							><%= require('html-loader!./view/balloon-svg.html').default %>
+						</span>
+						<span class="scoreboard__balloon scoreboard__balloon--unscored"
+							><%= require('html-loader!./view/balloon-svg.html').default %>
+						</span>
+						<span class="scoreboard__balloon scoreboard__balloon--unscored"
+							><%= require('html-loader!./view/balloon-svg.html').default %>
+						</span>
+						<span class="scoreboard__balloon scoreboard__balloon--unscored"
+							><%= require('html-loader!./view/balloon-svg.html').default %>
+						</span>
+					</span></span
+				>
+				<span class="scoreboard__boy"
+					><span class="scoreboard__text">Boy:</span>
+					<span class="scoreboard__boy-points">
+						<span class="scoreboard__balloon scoreboard__balloon--unscored"
+							><%= require('html-loader!./view/balloon-svg.html').default %>
+						</span>
+						<span class="scoreboard__balloon scoreboard__balloon--unscored"
+							><%= require('html-loader!./view/balloon-svg.html').default %>
+						</span>
+						<span class="scoreboard__balloon scoreboard__balloon--unscored"
+							><%= require('html-loader!./view/balloon-svg.html').default %>
+						</span>
+						<span class="scoreboard__balloon scoreboard__balloon--unscored"
+							><%= require('html-loader!./view/balloon-svg.html').default %>
+						</span>
+						<span class="scoreboard__balloon scoreboard__balloon--unscored"
+							><%= require('html-loader!./view/balloon-svg.html').default %>
+						</span>
+					</span>
+				</span>
+			</div>
+			<header>
+				<h1 class="main-heading">
+					<span class="main-heading__girl">GIRL</span>
+					<span class="main-heading__or">or</span>
+					<span class="main-heading__boy">BOY</span>
+				</h1>
+			</header>
+
+			<div id="bodymovin" class="living-room"></div>
+		</main>
+	</body>
+</html>
