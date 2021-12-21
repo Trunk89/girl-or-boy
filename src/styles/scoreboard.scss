@@ -1,0 +1,41 @@
+.scoreboard {
+    color: black;
+    border-bottom: 1px solid lightgrey;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100000;
+    padding: 10px 10px 0 10px;
+}
+
+.scoreboard__boy {
+    float: right;
+}
+
+.scoreboard__text {
+    vertical-align: top;
+    font-size: 27px;
+}
+
+.scoreboard__balloon--unscored {
+    g {
+        fill: #9f9f9f;
+    }
+}
+
+.scoreboard__girl-points {
+    .scoreboard__balloon--scored {
+        g {
+            fill: $red;
+        }
+    }
+}
+
+.scoreboard__boy-points {
+    .scoreboard__balloon--scored {
+        g {
+            fill: $blue;
+        }
+    }
+}

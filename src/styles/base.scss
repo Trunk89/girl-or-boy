@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'CandyLane-Regular';
+    src: url('../fonts/CandyLane-Regular.ttf'), url('../fonts/CandyLane-Regular.otf');
+}
+
+body {
+    background: #fff;
+    font-family: 'CandyLane-Regular';
+    margin: 0;
+}
+
+.main-heading {
+    margin: 15px 0;
+    text-align: center;
+    color: #9f9f9f;
+    font-size: 32px;
+    &__girl {
+        margin-right: 10px;
+        color: $red;
+        font-size: 72px;
+    }
+    &__boy {
+        margin-left: 10px;
+        color: $blue;
+        font-size: 72px;
+    }
+    &__or {
+        vertical-align: top;
+        margin-top: 13px;
+        display: inline-block;
+    }
+}
+
+.living-room {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 640px;
+    margin: 0 auto;
+    overflow: hidden;
+}

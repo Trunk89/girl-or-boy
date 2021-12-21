@@ -3,8 +3,8 @@ import falling from '../../audio/falling.mp3';
 import fall from '../../audio/fall.mp3';
 
 export class Coyote {
-	private container: HTMLElement;
-	private coyote: HTMLElement;
+	container: HTMLElement;
+	coyote: HTMLElement;
 
 	constructor(container: HTMLElement) {
 		this.container = container;

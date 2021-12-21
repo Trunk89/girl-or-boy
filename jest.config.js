@@ -1,0 +1,18 @@
+module.exports = {
+    preset: 'ts-jest',
+    testEnvironment: 'jsdom',
+    coveragePathIgnorePatterns: ['/node_modules/', '/dist/'],
+    coverageThreshold: {
+        global: {
+            statements: 50,
+            branches: 90,
+            functions: 0,
+            lines: 0,
+        },
+    },
+    transform: {
+        '^.+\\.(ts|tsx)?$': 'ts-jest',
+        '^.+\\.(js|jsx)$': 'babel-jest',
+    },
+    //setupFiles: ['./jest.setup-file.ts'],
+};

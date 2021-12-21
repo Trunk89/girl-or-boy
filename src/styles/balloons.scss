@@ -1,0 +1,87 @@
+.balloon {
+    cursor: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'  width='36px' height='36px' viewBox='0 0 58 58' style='enable-background:new 0 0 58 58;' xml:space='preserve' transform='rotate(30)'%3E%3Cline stroke='%23888888' stroke-width='4px' stroke-linecap='round' stroke-miterlimit='10' x1='29' y1='18' x2='29' y2='57'/%3E%3Ccircle fill='%23DD352E' cx='29' cy='14' r='10'/%3E%3C/svg%3E%0A"), move;
+    transition: width 600ms, height 600ms, bottom 800ms;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    height: 100px;
+    margin: 0.25rem;
+    text-align: center;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    box-shadow: inset -8px -8px 5px rgba(0, 0, 0, 0.07), 0 0 2px 2px rgba(0, 0, 0, 0.1), 0 0 8px 4px rgba(0, 0, 0, 0.03);
+    animation: flyUp 5s linear 1;
+    transition: transform 2s;
+    z-index: 1000;
+    background-color: #9f9f9f;
+    &:hover {
+        box-shadow: inset -12px -12px 5px rgb(0 0 0 / 7%), 0 0 2px 2px rgb(0 0 0 / 10%), 0 0 8px 4px rgb(0 0 0 / 3%);
+    }
+    border: none;
+}
+
+.knot {
+    margin-top: 94px;
+    border-right: 4px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 4px solid transparent;
+    animation: sway 2s infinite ease;
+    transition: border-bottom 1s;
+    z-index: -1;
+    background-color: #9f9f9f;
+}
+
+.string {
+    position: absolute;
+    left: -1px;
+    display: block;
+    width: 1px;
+    height: 100px;
+    margin-top: 12px;
+    background: black;
+    opacity: 1;
+    transition: opacity 1s;
+    mix-blend-mode: lighten;
+    z-index: -1;
+    box-shadow: inset -5px -5px 0 rgba(0, 0, 0, 0.07), 0 0 2px 2px rgba(0, 0, 0, 0.1), 0 0 8px 4px rgba(0, 0, 0, 0.03);
+}
+
+.helium {
+    width: 90px;
+    height: 240px;
+    position: relative;
+}
+
+.popped {
+    box-shadow: none !important;
+    width: 0.6rem;
+    height: 3px;
+    transform: translateY(600px) skew(20deg, 0deg) rotate(60deg);
+    transition: transform 2s ease-out;
+    .bang-effect__leaf {
+        position: absolute;
+        display: block;
+        left: 40px;
+        top: -90px;
+        width: 3px;
+        height: 8px;
+        opacity: 0;
+        z-index: 9999999999;
+    }
+    .knot {
+        margin-top: 10px;
+        margin-left: 60px;
+        border-bottom: 3px;
+        animation-play-state: paused;
+    }
+    .string {
+        height: 50px;
+        opacity: 0;
+    }
+}
+
+.bang-effect__leaf {
+    background: hsla(0, 0%, 62%, 1);
+    animation: bang 700ms ease-out forwards;
+    transition: 'transform 1s ease-out';
+}

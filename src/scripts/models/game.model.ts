@@ -6,8 +6,8 @@ import { BalloonType } from '../enums/balloon-type.enum';
 import { Balloons } from './balloons.model';
 
 export class Game {
-	private balloons: Balloons;
-	private readonly BABY_NAME: string;
+	balloons: Balloons;
+	readonly BABY_NAME: string;
 
 	constructor(container: HTMLElement, name: string, type: string) {
 		console.log(name, type);

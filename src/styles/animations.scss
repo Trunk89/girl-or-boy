@@ -1,0 +1,25 @@
+@keyframes flyUp {
+    0% {
+        transform: translateY(90vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes sway {
+    0%,
+    100% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes bang {
+    from {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}

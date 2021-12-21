@@ -5,19 +5,18 @@ import createPopEffectElement from '../utils/create-pop-effect.util';
 import { GenderType } from '../enums/Gender-type.enum';
 
 export class Balloons {
-	private popEffectContainer: HTMLElement;
-	private container: HTMLElement;
-	private balloons: Array<BalloonType> = [];
-	private readonly NUMBER_OF_BALLOONS: number = 20;
-	private NUMBER_OF_BOY_BALLOONS: number = 5;
-	private NUMBER_OF_GIRL_BALLOONS: number = 5;
-	private readonly BOY: string;
-	private readonly GIRL: string;
-	private readonly EMPTY: string;
+	popEffectContainer: HTMLElement;
+	container: HTMLElement;
+	balloons: Array<BalloonType> = [];
+	readonly NUMBER_OF_BALLOONS: number = 20;
+	NUMBER_OF_BOY_BALLOONS: number = 5;
+	NUMBER_OF_GIRL_BALLOONS: number = 5;
+	readonly BOY: string;
+	readonly GIRL: string;
+	readonly EMPTY: string;
 
 	constructor(container: HTMLElement, winner: string) {
 		this.container = container;
-
 		this.BOY = randomString();
 		this.GIRL = randomString();
 		this.EMPTY = randomString();
