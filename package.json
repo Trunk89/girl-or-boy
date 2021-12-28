@@ -8,6 +8,10 @@
         "build": "webpack",
         "test": "jest --watch"
     },
+    "engines": {
+        "npm": ">=8.0.0",
+        "node": ">=16.0.0"
+    },
     "author": "Kamil Kolodynski",
     "license": "ISC",
     "devDependencies": {
