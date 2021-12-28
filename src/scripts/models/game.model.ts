@@ -1,21 +1,21 @@
 import pop from '../../audio/pop-sound.mp3';
-import { confetti } from 'tsparticles-preset-confetti';
 import modalAnimation from '../utils/modal-animation.util';
 import { Coyote } from './coyote.model';
 import { BalloonType } from '../enums/balloon-type.enum';
 import { Balloons } from './balloons.model';
+import fireConfetti from '../utils/fire-confetti.util';
 
 export class Game {
 	balloons: Balloons;
-	readonly BABY_NAME: string;
+	BABY_NAME: string;
+	modalWinner: HTMLElement;
+	modalWinnerName: HTMLElement;
 
 	constructor(container: HTMLElement, name: string, type: string) {
-		console.log(name, type);
 		this.cacheElements();
 
 		this.blowConfetti = this.blowConfetti.bind(this);
 		this.handleClick = this.handleClick.bind(this);
-
 		this.balloons = new Balloons(container, type);
 		this.BABY_NAME = name;
 
@@ -28,10 +28,12 @@ export class Game {
 		this.addCoyote();
 	}
 
+	static getRandomInterval() {
+		return Math.floor(Math.random() * (15000 - 5000 + 1) + 5000);
+	}
+
 	addCoyote() {
-		const randomInterval = Math.floor(
-			Math.random() * (15000 - 5000 + 1) + 5000
-		);
+		const randomInterval = Game.getRandomInterval();
 		setTimeout(() => {
 			new Coyote(document.querySelector('main'));
 		}, randomInterval);
@@ -57,15 +59,18 @@ export class Game {
 
 	cacheElements() {
 		this.createModal();
+		this.modalWinner = document.querySelector('.modal__winner');
+		this.modalWinnerName = document.querySelector('.modal__winner-name');
 	}
 
 	createModal() {
 		const modalNode = document.createElement('div');
 		modalNode.classList.add('modal');
 		modalNode.classList.add('hidden');
-		modalNode.innerHTML = `<div class="modal__content">
-    <h1>It's a <span class="modal__winner"></span></h1>
-    <p>Welcome into our family <span class="modal__winner-name"></span>!</p>
+		modalNode.innerHTML = `
+		<div class="modal__content">
+    	<h1>It's a <span class="modal__winner"></span></h1>
+    	<p>Welcome into our family <span class="modal__winner-name"></span>!</p>
     </div>`;
 		document.querySelector('main').append(modalNode);
 	}
@@ -81,30 +86,12 @@ export class Game {
 			return;
 		}
 		if (type === BalloonType.BOY) {
-			color = '7ec8e3';
+			color = '#7ec8e3';
 		} else if (type === BalloonType.GIRL) {
 			color = '#ff69b4';
 		}
 
-		confetti('tsparticles', {
-			position: {
-				x: posX || 50,
-				y: posY || 50,
-			},
-			angle: 90,
-			count: count || 150,
-			spread: 90,
-			startVelocity: 45,
-			decay: 0.9,
-			gravity: 1,
-			drift: 0,
-			ticks: 200,
-			colors: [color],
-			shapes: ['square', 'circle'],
-			scalar: 1,
-			zIndex: 100,
-			disableForReducedMotion: true,
-		});
+		fireConfetti(color, posX, posY, count);
 	}
 
 	updateScores(type: BalloonType) {
@@ -124,16 +111,12 @@ export class Game {
 	}
 
 	announceWinner(type: BalloonType) {
-		const modalWinner = document.querySelector('.modal__winner') as HTMLElement;
-		const modalWinnerName = document.querySelector(
-			'.modal__winner-name'
-		) as HTMLElement;
+		this.modalWinner.style.fontSize = '72px';
+		this.modalWinner.style.color =
+			type === BalloonType.BOY ? '#7ec8e3' : '#ff69b4';
+		this.modalWinner.innerHTML = type;
 
-		modalWinner.style.fontSize = '72px';
-		modalWinner.style.color = type === BalloonType.BOY ? '#7ec8e3' : '#ff69b4';
-		modalWinner.innerHTML = type;
-
-		modalWinnerName.innerHTML = this.BABY_NAME;
+		this.modalWinnerName.innerHTML = this.BABY_NAME;
 
 		modalAnimation();
 
