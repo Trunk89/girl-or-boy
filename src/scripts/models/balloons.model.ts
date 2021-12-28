@@ -2,7 +2,7 @@ import { BalloonType } from '../enums/balloon-type.enum';
 import randomString from '../utils/random-string.util';
 import shuffleArray from '../utils/shuffle-array.util';
 import createPopEffectElement from '../utils/create-pop-effect.util';
-import { GenderType } from '../enums/Gender-type.enum';
+import { GenderType } from '../enums/gender-type.enum';
 
 export class Balloons {
 	popEffectContainer: HTMLElement;
